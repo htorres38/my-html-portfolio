@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- linking the external css stylesheet -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <!-- main content section -->
+  <div class="page-content">
+    <h1>Resume</h1>
+    <h3>Summary</h3>
+    <p>Passionate software enthusiast dedicated to educating others, fostering adaptable solutions, and promoting diversity within the tech industry. Proficient in effective communication and various programming methodologies, with strong skills in collaborative problem-solving and analytical thinking. Experienced in <b>C#, Excel, and HTML, complemented by a solid foundation in computer literacy.</b></p>
+    <h3>Education</h3>
+    <p><b>Bachelor of Science in Computer Information Systems</b>, West Texas A&M, Canyon, TX, Anticipated Fall 2025 • 3.7 GPA</p>
+    <p><b>Associate of Science in General Studies</b>, Frank Phillips College, Borger, TX, May 2023 • 3.44 GPA </p>
+    <h3>Skills</h3>
+    <p><b>Communication:</b> Conducted survey in college statistics course which involved interviewing 30 college students at the University of Texas at Arlington, 2021</p>
+    <p><b>C# (Basic Knowledge): </b> Familiar with core concepts and basic programming structures through CIDM 2315 Programming Business Applications.</p>
+    <p><b>Excel:</b> Achieved an A in CIDM 3330 Management Information Systems. Completed Excel labs in MyEducator, where I developed business analysis skills using software tools and created documents to effectively communicate with decision makers and stakeholders.</p>
+    <p><b>HTML (Basic Knowledge):</b> Gained foundational knowledge through CIDM 1315 Programming Fundamentals, receiving an A. Portfolio available at [GitHub link].</p>
+    <p><b>Classroom Management & Adaptability:</b> Effectively managed diverse classrooms while substitute teaching for grades K-8, quickly adapting to various teaching styles and ensuring continuity in student learning. </p>
+    <h3>Achievements</h3>
+    <ul>
+      <li><i>Presidents List WTAMU, Fall 2023</i></li>
+      <li><i>Became member of Phi Theta Kappa, January 2023</i></li>
+      <li><i>Frank Phillips College Outstanding Accomplishment in Biology for Non-Science Majors II 2023</i></li>
+      <li><i>Deans List WTAMU, Fall 2023</i></li>
+    </ul>
+    <h3>Organizations/Community</h3>
+    <p>Phi Theta Kappa, 2023</p>
+    <p>Buffteks WTAMU Fall 2024</p>
+    <p>As part of a service learning project I completed via FPC at the Grace Fellowship Church Borger, TX, I volunteered as a server for the Borger Care Net Pregnancy Center Fundraiser Banquet. Servers aided in distributing food and drinks and in the cleanup afterward.</p>
+    <img src="images/community.png" width="130px" height="90px" alt="community" title="Volunteer Work">
+    <hr>
+    
+    <!-- form section -->
+    <form id="userInputForm" action="https://www.w3schools.com/action_page.php" method="post">
+      <p>Which of the following skills or achievements do you think is most valuable for a potential employee?
+        <br>
+        <!-- radio buttons for user feedback -->
+        <input type="radio" name="skill" value="communication"> Communication skills<br>
+        <input type="radio" name="skill" value="collaboration"> Collaboration experience<br>
+        <input type="radio" name="skill" value="leadership"> Leadership qualities<br>
+        <input type="radio" name="skill" value="technical"> Technical proficiency<br>
+        <!-- submit button -->
+        <input type="submit" value="Submit Feedback">
+    </form>
+    </p>
+    
+    <!-- feedback message section -->
+    <hr>
+    <p id="feedbackMessage"></p>
+
+    <!-- navigation links -->
+    <a href="skills.html">Skills</a>
+    <a href="main.html">Home</a>
+  </div>
+  
+  <!-- javaScript for form submission -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+       // this line listens for when the user submits the form, so we can react correctly.
+      document.querySelector('form').addEventListener('submit', function (event) {
+        // we stop the form from being submitted in the usual way which allows us to handle the submission individually.
+        event.preventDefault();
+        // gets the value of the radio button that the user has selected
+        var selectedValue = document.querySelector('input[name="skill"]:checked').value;
+        // prepare feedback message to display on the page
+        var message = "I agree " + selectedValue + " is the most valuable.";
+        // displaying feedback message
+        document.getElementById('feedbackMessage').innerText = message;
+      });
+    });
+  </script>
+</body>
+
+</html>
