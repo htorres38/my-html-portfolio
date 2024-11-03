@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- this script tag handles the form submission (put this in header because it is more important for validation due to certain functions) -->
+  <script>
+    function contactUs() {
+      // retrieves user input values for first name, last name, and phone number
+      var firstName = document.getElementById('first').value.trim();
+      var lastName = document.getElementById('last').value.trim();
+      var phoneNumber = document.getElementById('phone').value.trim();
+      // defines regular expressions for validation
+      var regexLetters = /^[a-zA-Z]+$/;
+      var regexPhoneNumber = /^\d{10}$/;
+
+      // validation for first name which must contain only letters
+      if (!firstName.match(regexLetters)) {
+        alert('You did not enter a valid first name.');
+        return;
+      }
+
+      // validatiom for last name which contains only letters
+      if (!lastName.match(regexLetters)) {
+        alert('You did not enter a valid last name.');
+        return;
+      }
+
+      // validation for phone number which contains only 10 numbers
+      if (!phoneNumber.match(regexPhoneNumber)) {
+        alert('You did not enter a valid phone number.');
+        return;
+      }
+
+      // asks the user to choose their preferred method of communication
+      var contactMethod = prompt('What is your preferred method of communication? (email or phone number?)');
+      if (contactMethod) {
+        // handles email communication
+        if (contactMethod.toLowerCase() === 'email') {
+          var email = prompt('Please enter your email address:');
+          if (email) {
+            // displays a confirmation message with the user's contact information they submitted
+            alert('Your contact information:\n\nFirst Name: ' + firstName + '\nLast Name: ' + lastName + '\nPhone Number: ' + phoneNumber + '\n\nWe will email you back at the email address provided: ' + email);
+          } else {
+            alert('No email address provided.');
+          }
+        }
+        // handles phone number communication
+        else if (contactMethod.toLowerCase() === 'phone number') {
+          // displays a confirmation message with the user's contact information they submitted 
+          alert('Your contact information:\n\nFirst Name: ' + firstName + '\nLast Name: ' + lastName + '\nPhone Number: ' + phoneNumber + '\n\nWe will call you back at the phone number provided.');
+        }
+        // handles invalid contact method submissions
+        else {
+          alert('Invalid contact method. Please choose from "email" or "phone number".');
+        }
+      }
+      // handles the case in where no contact method is selected
+      else {
+        alert('No contact method selected.');
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="page-content">
+    <h1>Skills/Letter of Recommendation</h1>
+    <h2>Work Skills</h2>
+    <p>Subbing for almost two semesters in grades 5-8 has taught me adaptability, clear communication, and how to use
+      technology effectively. These skills are essential for my goal of becoming a software developer. I quickly
+      adjust to different classrooms, ensure every student's needs are met, and use tech to enhance learning. I'm
+      excited to bring these skills to software development, where problem-solving and innovation are key.</p>
+    <h2>MyPlan Results</h2>
+    <p>My MyPlan test results highlighted my strengths in achievement, working conditions, relationships,
+      recognition,
+      support, and independence. I'm driven to excel, thrive in supportive environments, value connections,
+      appreciate acknowledgment, enjoy teamwork, and cherish autonomy. With this understanding, I'm committed to
+      utilizing these strengths effectively in my pursuits, striving for excellence, and making positive
+      contributions to every project.
+    </p>
+    <h2>MyPlan Results Part 2</h2>
+    <p>These qualities make me well-suited for software development. I'm driven to achieve goals, adaptable to
+      different
+      work environments, and skilled at collaborating effectively in teams. Building strong relationships with
+      colleagues enhances communication and teamwork, crucial in developing complex software. Recognition and
+      support
+      fuel my motivation, ensuring dedication to tasks. Additionally, my independence allows me to take ownership
+      of
+      projects, innovate, and solve problems autonomously, all valuable traits in the software development field.
+    </p>
+    <div class="alignRight">
+      <h3>Letter of Recommendation</h3>
+      <!-- image of a letter of recommendation -->
+      <img src="images/letterofrec.png" width="350px" height="400px" alt="letter" title="Letter of Recommendation">
+    </div>
+    <div>
+      <h1>Get in Touch</h1>
+      <!-- form inputs for first name, last name, and phone number -->
+      First name: <input type="text" id="first" required><br>
+      Last name: <input type="text" id="last" required><br>
+      Phone Number: <input type="text" id="phone" required><br>
+      <!--button to submit contact information -->
+      <button type="button" onclick="contactUs()">Submit</button>
+      <!-- placeholders for displaying submitted contact information -->
+      <p id="name"></p>
+      <p id="phoneNumber"></p>
+      <p id="email"></p>
+    </div>
+
+    <!-- navigation links -->
+    <a href="index.html">Home</a>
+    <a href="resume.html">Resume</a>
+  </div>
+</body>
+
+</html>
