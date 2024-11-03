@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- linking the external stylesheet -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <!-- this is the main container that holds all the content -->
+    <div class="page-content">
+        <div id="div1">
+            <h1>Haylee Torres</h1>
+        </div>
+        <br>
+        <div class="center-image">
+            <img src="images/port1.jpg" width="180px" height="230px" alt="port1" title="Haylee Torres">
+        </div>
+        <div class="center-text">
+            <h2>Software Developer</h2>
+            <h3>"Building Bridges Byte by Byte"</h3>
+        </div>
+        <hr>
+        <p>I'm currently pursuing my Bachelor's in Computer Information Systems at West Texas A&M University, set to
+            graduate in Fall 2025. My passion lies in software development, where I aim to create impactful solutions
+            for individuals and businesses. I'm dedicated to continuous learning and growth in this field to contribute
+            to cutting-edge projects and advancements in technology. My goal is to craft software that meets users'
+            needs and enhances their experiences in the rapidly evolving digital world.</p>
+        <p>Growing up without much technology, I found computers challenging in high school. But with hard work, I've
+            become skilled in tech and enjoy helping others with it. Nothing else excites me like technology does. I'm
+            driven by its endless possibilities and want to make a difference through innovation. This journey from
+            struggle to proficiency has made me passionate about pursuing a tech career, where I can keep learning and
+            contribute to its growth.</p>
+        <p>Currently, I'm a substitute teacher, but my true passion lies in software development. My college journey in
+            computer information systems has equipped me with valuable skills that I can use to assist students in my
+            work. I'm excited to combine my teaching experience with my tech skills to create impactful solutions and
+            inspire others.</p>
+        <hr>
+        <br>
+        <h3>Tell me about your experience in programming</h3>
+        <!-- F\form for user to select programming languages, skill level, coding experience, and interest areas -->
+        <form id="userInputForm" action="https://www.w3schools.com/action_page.php" method="get">
+            <!-- checkboxes for selecting programming languages -->
+            <label for="languages">Which programming languages do you know?</label><br>
+            <input type="checkbox" id="languagePython" name="languages" value="Python">
+            <label for="languagePython">Python</label><br>
+            <input type="checkbox" id="languageHTML" name="languages" value="HTML">
+            <label for="languageHTML">HTML</label><br>
+            <input type="checkbox" id="languageC" name="languages" value="C">
+            <label for="languageC">C#</label><br>
+            <input type="checkbox" id="languageJavascript" name="languages" value="Javascript">
+            <label for="languageJavascript">Javascript</label><br>
+            <!-- dropdown for selecting skill level -->
+            <label for="skillLevel">What is your skill level?</label>
+            <select id="skillLevel" name="skillLevel" required>
+                <option value="">Select skill level</option>
+                <!-- options for beginner, intermediate, and advanced -->
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select><br>
+
+            <!-- radio buttons for selecting coding experience -->
+            <label for="codingExperience">How much experience do you have in coding?</label><br>
+            <input type="radio" id="codingExperienceBeginner" name="codingExperience" value="beginner">
+            <label for="codingExperienceBeginner">Beginner</label><br>
+            <input type="radio" id="codingExperienceIntermediate" name="codingExperience" value="intermediate">
+            <label for="codingExperienceIntermediate">Intermediate</label><br>
+            <input type="radio" id="codingExperienceAdvanced" name="codingExperience" value="advanced">
+            <label for="codingExperienceAdvanced">Advanced</label><br>
+
+            <!-- checkboxes for selecting interest areas -->
+            <label for="interestAreas">What are your interest areas?</label><br>
+            <input type="checkbox" id="interestAreaWeb" name="interestAreas" value="web">
+            <label for="interestAreaWeb">Web Development</label><br>
+            <input type="checkbox" id="interestAreaMobile" name="interestAreas" value="mobile">
+            <label for="interestAreaMobile">Mobile Development</label><br>
+            <input type="checkbox" id="interestAreaData" name="interestAreas" value="data">
+            <label for="interestAreaData">Data Science</label><br>
+            <!-- submit button -->
+            <input type="submit" value="Submit">
+        </form>
+        <hr>
+        <div class="center-text">
+            <h3>Contact Information</h3>
+            <p>623 Jackson St</p>
+            <p>Borger TX, 79007</p>
+            <p>(806) 274-0728</p>
+        </div>
+        <div class="center-image">
+            <!-- linkedIn profile link -->
+           <a href="https://www.linkedin.com/in/hayleejtorres" target="_blank">
+    <img src="images/linkedin.jpg" width="30px" height="30px" alt="LinkedIn Profile" title="LinkedIn">
+</a>
+            <!-- email link -->
+            <a href="mailto:hjade7255@outlook.com"><img src="images/mail.jpg" width="30px" height="30px" alt="figure2"
+                    title="Mail"></a>
+        </div>
+        <!-- image that shows for linkedIn link -->
+        <p>Source from Figure 1 "LinkedIn"
+            <a href="https://www.flickr.com/photos/63674817@N00/5570657815/">Link</a>
+        </p>
+        <!-- image that shows for email link -->
+        <p>Source from Figure 2 "Mail"<a href="https://live.staticflickr.com/7476/15882078217_736bbba7ce_m.jpg">Link</a>
+        </p>
+        <!-- script section for all form submission business -->
+        <script>
+            // this line listens for when the user submits the form, so we can react correctly.
+            document.getElementById('userInputForm').addEventListener('submit', function (event) {
+                // we stop the form from being submitted in the usual way which allows us to handle the submission individually.
+                event.preventDefault();
+                // collect selected programming languages
+                var selectedLanguages = [];
+                var languageCheckboxes = document.querySelectorAll('input[name="languages"]:checked');
+                languageCheckboxes.forEach(function (checkbox) {
+                    selectedLanguages.push(checkbox.value);
+                });
+                // collect selected skill level
+                var skillLevel = document.getElementById('skillLevel').value;
+                // collect selected coding experience
+                var codingExperience = document.querySelector('input[name="codingExperience"]:checked').value;
+                // collect selected interest areas
+                var interestAreas = [];
+                var interestCheckboxes = document.querySelectorAll('input[name="interestAreas"]:checked');
+                interestCheckboxes.forEach(function (checkbox) {
+                    interestAreas.push(checkbox.value);
+                });
+                // capturing the user's input values and displaying them in the browser's console for other processing 
+                console.log("Selected Programming Languages:", selectedLanguages);
+                console.log("Skill Level:", skillLevel);
+                console.log("Coding Experience:", codingExperience);
+                console.log("Interest Areas:", interestAreas);
+                // this is what displays as a form of submission confirmation when everything has been selected
+                alert('Form submitted successfully!');
+            });
+        </script>
+        <hr>
+        <!-- navigation links -->
+        <a href="resume.html">Resume</a>
+        <a href="skills.html">Skills</a>
+    </div>
+</body>
+
+</html>
